@@ -1,0 +1,47 @@
+<div
+  class="gm-button-list"
+  [ngClass]="{'gm-pb-container': !list || list?.length > 0}"
+  [ngClass]="{'gm-flex gm-flex-col gm-grow gm-items-center gm-justify-center': !list || list?.length === 0}">
+  <ng-container
+    *ngIf="!list || list?.length === 0">
+    <mat-icon class="gm-no-data-icon">inbox</mat-icon>
+    <div class="gm-pb-container">No ToDo is added yet</div>
+  </ng-container>
+
+  <button
+    (click)="emitAddEvent()"
+    mat-raised-button
+    class="gm-button-list__item">
+    Add
+  </button>
+</div>
+
+<mat-selection-list
+  *ngIf="list?.length > 0"
+  class="gm-overflow-y-auto gm-grow gm-todo-list"
+  [multiple]="false"
+  (selectionChange)="emitSelectData($event)"
+  role="list"
+  #listRef>
+
+  <mat-list-option
+    *ngFor="let todo of list"
+    [value]="todo._id"
+    class="gm-todo-list__item"
+    role="listitem">
+
+    <div class="gm-flex gm-items-center">
+
+      <b class="gm-pr-container gm-grow">{{todo.title}}</b>
+
+      <span>{{todo.endDateDisplayValue}}</span>
+
+      <button mat-icon-button (click)="emitDeleteData($event, todo._id)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+
+    </div>
+
+  </mat-list-option>
+
+</mat-selection-list>

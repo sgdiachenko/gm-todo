@@ -1,0 +1,11 @@
+.gm-button-list {
+  display: flex;
+}
+
+.gm-button-list__item,
+.gm-button-list__item.mat-raised-button {
+  margin-right: 16px;
+  &:last-child {
+    margin-right: 0;
+  }
+}

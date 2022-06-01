@@ -1,0 +1,24 @@
+.gm-p-container {
+  padding: var(--page-inner-indent-base);
+}
+
+.gm-px-container {
+  padding-left: var(--page-inner-indent-base);
+  padding-right: var(--page-inner-indent-base);
+}
+
+.gm-pr-container {
+  padding-right: var(--page-inner-indent-base);
+}
+
+.gm-pt-container {
+  padding-top: var(--page-inner-indent-base);
+}
+
+.gm-pb-container {
+  padding-bottom: var(--page-inner-indent-base);
+}
+
+.gm-ml-auto {
+  margin-left: auto;
+}

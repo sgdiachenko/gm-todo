@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import './app/shared/styles/helpers/helpers.scss';
+@import './app/angular-material/styles/angular-material.scss';
+@import './app/shared/styles/components/components.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --page-inner-indent-base: 16px;
+  --color-good-base: #69f0ae;
+  --color-critical-base: #f44336;
+}

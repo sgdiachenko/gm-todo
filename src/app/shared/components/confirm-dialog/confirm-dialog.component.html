@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+
+<div mat-dialog-content>
+  <p class="mat-body-1">{{data.message}}</p>
+</div>
+
+<div class="gm-button-list gm-justify-end">
+  <button
+    mat-raised-button
+    mat-dialog-close
+    tabindex="-1"
+    type="button"
+    class="gm-button-list__item">
+    Cancel
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    tabindex="0"
+    (click)="dialogRef.close(true)"
+    class="gm-button-list__item">
+    Submit
+  </button>
+</div>

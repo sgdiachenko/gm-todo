@@ -1,0 +1,36 @@
+<mat-drawer-container>
+
+  <gm-todo-list
+    *ngIf="list$ | async as list"
+    [list]="list"
+    (add)="addTodo()"
+    (delete)="deleteTodo($event)"
+    (select)="selectTodo($event)"
+    #listRef
+  ></gm-todo-list>
+
+  <mat-drawer #drawer mode="side" position="end" [opened]="showDrawer$ | async">
+    <div class="gm-drawer gm-h-full">
+
+      <div class="gm-drawer__header">
+
+        <button mat-icon-button (click)="drawer.close()">
+          <mat-icon>close</mat-icon>
+        </button>
+
+      </div>
+
+      <div class="gm-drawer__body">
+        <gm-todo-form
+          class="gm-h-full"
+          [todo]="selectedTodo$ | async"
+          (save)="saveTodo($event)"
+          (cancel)="cancelTodoEditing()"
+          (delete)="deleteTodo($event)"
+        ></gm-todo-form>
+      </div>
+
+    </div>
+  </mat-drawer>
+
+</mat-drawer-container>

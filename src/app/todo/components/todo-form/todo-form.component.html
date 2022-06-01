@@ -1,0 +1,50 @@
+<form [formGroup]="formGroup" class="gm-grow gm-flex gm-flex-col gm-min-h-0">
+  <div class="gm-grow gm-overflow-y-auto gm-pb-container">
+    <mat-form-field appearance="fill" class="gm-w-full">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" [formControlName]="titleFormControlName">
+      <mat-error>Field is empty</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="gm-w-full">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="picker" [formControlName]="endDateFormControlName">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error>Value is not valid</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="gm-button-list">
+    <button
+      type="button"
+      (click)="emitCancelEvent()"
+      mat-raised-button
+      class="gm-button-list__item">
+      Cancel
+    </button>
+
+    <div class="gm-flex gm-ml-auto">
+      <button
+        *ngIf="todo?._id"
+        type="button"
+        (click)="emitDeleteData()"
+        mat-raised-button
+        class="gm-button-list__item">
+        Delete
+      </button>
+
+      <button
+        type="submit"
+        mat-raised-button
+        [disabled]="formGroup.pristine || !formGroup.valid"
+        color="primary"
+        class="gm-button-list__item"
+        type="button"
+        (click)="emitSaveData()">
+        {{todo?._id ? 'Save' : 'Add'}}
+      </button>
+    </div>
+  </div>
+</form>
